@@ -1,10 +1,9 @@
 import React, { Component} from 'react'
 
 class Toolbar extends Component{
-  constructor(props){
-    super(props)
-
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   checkIcon = (messages) => {
     const allMessages = messages.every(message => message.selected === true);
@@ -21,7 +20,7 @@ class Toolbar extends Component{
   }
 
   disableToolbar = () => {
-    const selected = this.props.messages.filter(message => message.selected === false)
+    const selected = this.props.messages.filter(message => message.selected=== undefined)
     return selected.length ? '' : 'disabled'
   }
 
@@ -33,6 +32,10 @@ class Toolbar extends Component{
             <span className="badge badge">{this.countUnRead(this.props.messages)}</span>
             unread message{`${this.countUnRead(this.props.messages) > 1 ? 's' : ''}`}
           </p>
+
+          <a onClick={this.props.composeForm} className="btn btn-danger">
+            <i className="fa fa-plus"></i>
+          </a>
 
           <button onClick={this.props.highLightAll} className="btn btn-default">
             <i  className={this.checkIcon(this.props.messages)}></i>
