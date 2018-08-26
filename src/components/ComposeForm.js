@@ -16,13 +16,14 @@ class ComposeForm extends Component{
   }
 
   onSubmit = (event) => {
+    console.log(event.target.subject.value);
     event.preventDefault()
     this.props.createMessage({subject: this.state.subject, body: this.state.body})
   }
 
   render(){
     return (
-      <form className="form-horizontal well">
+      <form onSubmit={this.onSubmit} className="form-horizontal well">
         <div className="form-group">
           <div className="col-sm-8 col-sm-offset-2">
             <h4>Compose Message</h4>
@@ -42,7 +43,7 @@ class ComposeForm extends Component{
         </div>
         <div className="form-group">
           <div className="col-sm-8 col-sm-offset-2">
-            <input onClick={(event)=>this.onSubmit(event)} type="submit" value="Send" className="btn btn-primary" />
+            <input type="submit" value="Send" className="btn btn-primary" />
           </div>
         </div>
       </form>
