@@ -32,12 +32,7 @@ class App extends Component {
 
   starMessage = async (id) => {
     const response = await axios.patch(`http://localhost:8082/api/messages`, { messageIds:[id], command:'star', starred:true })
-    // const newMessages = this.state.messages.map(message => {
-    //   if(message.id === id) {
-    //     message.starred = !message.starred;
-    //   }
-    //   return message;
-    // })
+  
     const newMessages = await this.getAllMessages();
 
     this.setState({
