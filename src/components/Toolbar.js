@@ -20,7 +20,7 @@ class Toolbar extends Component{
   }
 
   disableToolbar = () => {
-    const selected = this.props.messages.filter(message => message.selected=== undefined)
+    const selected = this.props.messages.filter(message => message.selected != undefined)
     return selected.length ? '' : 'disabled'
   }
 
